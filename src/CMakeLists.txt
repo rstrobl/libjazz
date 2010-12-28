@@ -7,3 +7,4 @@ set(SOURCE
 )
 
 add_executable(libjazz ${SOURCE})
+

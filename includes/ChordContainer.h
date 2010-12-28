@@ -24,6 +24,7 @@
 #include <iostream>
 #include <string>
 #include <map>
+#include <boost/regex.hpp>
 
 #include "Chord.h"
 
