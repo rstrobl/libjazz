@@ -18,28 +18,36 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
  */
 
-#ifndef KEY_H__
-#define KEY_H__
+#include "ChordContainer.h"
 
-#include <string>
-#include <vector>
-#include <map>
+namespace Jazz { ChordContainer chord; }
 
-typedef char Letter;
-
-#define FLAT -1
-#define SHARP 1
-
-using namespace std;
-
-class Key 
+Chord *ChordContainer::operator[](std::string chordName)
 {
-//	const Letter[] = {'C', 'D', 'E', 'F', 'G', 'A', 'B'};
-	
-public:
-	Key(string, int);
-};
+	// check wether chord is already listed
+	if(this->find(chordName) == this->end())
+	{
+		string key, quality;
+		string *current = &key;
+		string::iterator it = chordName.begin();
+		
+		assert(chordName.length() > 0);
+		
+		// first character is the alphabetic letter from C to B and belongs to the key
+		(*current)[0] = *(it++);
+		
+		for(; it != chordName.end(); it++)
+		{	
+			if(*it != '#' && *it != 'b')
+				current = &quality;
+			
+			// append character to current string
+			current->push_back(*it);
+		}
+		
+		// create chord from the given information
+//		((map<std::string, Chord *>)*this)[chordName] = new Chord(key, quality);
+	}
 
-namespace Jazz { extern map<string, Key *> key; };
-
-#endif
+	return ((map<std::string, Chord *>)*this)[chordName];
+}

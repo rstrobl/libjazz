@@ -18,28 +18,22 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
  */
 
-#ifndef KEY_H__
-#define KEY_H__
+#include "Chord.h"
 
-#include <string>
-#include <vector>
-#include <map>
-
-typedef char Letter;
-
-#define FLAT -1
-#define SHARP 1
-
-using namespace std;
-
-class Key 
+Chord::Chord(Key *key, ChordQuality *quality)
 {
-//	const Letter[] = {'C', 'D', 'E', 'F', 'G', 'A', 'B'};
-	
-public:
-	Key(string, int);
-};
+	this->rootKey = key;
+	this->chordQuality = quality;
+}
 
-namespace Jazz { extern map<string, Key *> key; };
+ostream& operator <<(ostream &stream, const Chord &chord)
+{
+	stream << chord.rootKey << chord.chordQuality;
+	return stream;
+}
 
-#endif
+ostream& operator <<(ostream &stream, const Chord *chord)
+{
+	stream << chord->rootKey << chord->chordQuality;
+	return stream;
+}
