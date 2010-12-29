@@ -11,8 +11,8 @@ You may need "cmake" and the "boost" library
 
 ## INSTALLATION
 
-$ cmake .
-$ make
+	$ cmake .
+	$ make
 
 ## GETTING STARTED
 
