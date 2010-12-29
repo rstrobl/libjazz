@@ -44,6 +44,7 @@ public:
 	// accessors
 	int getHalfTonesOverC() const { return _halfTonesOverC; }
 	string getName() const { return _name; }
+	vector<int> getMIDIKeys();
 	
 	// operators
 	friend ostream& operator <<(ostream &stream, const Key *key);

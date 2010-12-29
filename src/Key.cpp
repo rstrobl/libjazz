@@ -24,9 +24,28 @@ namespace Jazz { map<string, Key *> key; };
 
 Key::Key(string name, int halfTonesOverC)
 {
-	this->_name = name;
-	this->_halfTonesOverC = halfTonesOverC;
+	_name = name;
+	_halfTonesOverC = halfTonesOverC;
 }
+
+vector<int> Key::getMIDIKeys()
+{
+	vector<int> midiKeys;
+	int halfTonesOverCForA = Jazz::key["A"]->getHalfTonesOverC();
+	
+	// MIDI keys start with an A instead of a C
+	// so the A, Bb and B before the first C also belongs to A
+	if(_halfTonesOverC >= halfTonesOverCForA)
+		midiKeys.push_back(21 + _halfTonesOverC - halfTonesOverCForA);
+	
+	// MIDI keys go from 21 (A0) to 108 (C8)
+	// an octave consists of 12 halftones
+	for(int i=24 + _halfTonesOverC; i<=108; i+=12)
+		midiKeys.push_back(i);
+
+	return midiKeys;
+}
+
 
 ostream& operator <<(ostream &stream, const Key *key)
 {
