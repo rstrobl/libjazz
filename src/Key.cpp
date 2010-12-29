@@ -28,14 +28,38 @@ Key::Key(string name, int halfTonesOverC)
 	this->_halfTonesOverC = halfTonesOverC;
 }
 
-ostream& operator <<(ostream &stream, const Key &key)
-{
-	stream << key._name;
-	return stream;
-}
-
 ostream& operator <<(ostream &stream, const Key *key)
 {
 	stream << key->_name;
 	return stream;
+}
+
+Key *Key::operator+(const Interval *interval) const 
+{
+	for (map<string, Key *>::iterator it = Jazz::key.begin(); it != Jazz::key.end(); it++) 
+	{
+		// check whether halftones match
+		// due to the enharmonic there will be more than one result
+		// so we need to find the right letter after matching
+		if(it->second->getHalfTonesOverC() == this->getHalfTonesOverC() + interval->getHalfTones())
+		{
+			char letterName = this->getName()[0];
+			char refLetterName = it->second->getName()[0];
+			int octave = 0;
+			
+			// in case we want the distance from G to A
+			// this will cause a negative value
+			// therefore we need to get to the A over G by adding an octave to A
+			// so we introduce the new letter H for getting a letter distance of 1
+			// between G and H (A)
+			if(refLetterName < letterName)
+				octave = 7;
+
+			// if the letter distance matches the key is returned
+			if((octave + refLetterName - letterName) == interval->getLetterIndex())
+				return it->second;
+		}
+	}
+	
+	return NULL;
 }

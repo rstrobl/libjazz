@@ -26,7 +26,7 @@
 #include <map>
 #include <iostream>
 
-typedef char Letter;
+#include "interval.h"
 
 using namespace std;
 
@@ -38,12 +38,17 @@ class Key
 public:
 	// constructors
 	Key(string name, int halfTonesOverC);
-
+	
+	// accessors
+	int getHalfTonesOverC() const { return _halfTonesOverC; }
+	string getName() const { return _name; }
+	
 	// operators
-	friend ostream& operator <<(ostream &stream, const Key &key);
 	friend ostream& operator <<(ostream &stream, const Key *key);
+	
+	Key *operator+(const Interval *interval) const;
 };
 
-namespace Jazz { extern map<string, Key *> key; };
+namespace Jazz {  extern map<string, Key *> key;  };
 
 #endif

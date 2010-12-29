@@ -39,6 +39,8 @@ public:
 	// constructors
 	ChordQuality(string name, vector<Interval *> &intervals);
 	
+	vector<Key *> getKeysFor(const Key *rootKey);
+	
 	// operators
 	friend ostream& operator <<(ostream &stream, const ChordQuality &quality);
 	friend ostream& operator <<(ostream &stream, const ChordQuality *quality);

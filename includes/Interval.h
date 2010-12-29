@@ -56,6 +56,10 @@ class Interval
 public:
 	// constructors
 	Interval(int halfTones, int letterIndex);
+	
+	// accessors
+	int getHalfTones() const { return _halfTones; }
+	int getLetterIndex() const { return _letterIndex; }
 };
 
 namespace Jazz { extern map<KeyInterval, Interval *> interval; };

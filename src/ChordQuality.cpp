@@ -28,6 +28,18 @@ ChordQuality::ChordQuality(string name, vector<Interval *> &intervals)
 	_intervals = intervals;
 }
 
+vector<Key *> ChordQuality::getKeysFor(const Key *rootKey)
+{
+	vector<Key *> keys;
+	
+	// add intervals of chord quality to root key
+	for (vector<Interval *>::iterator it = _intervals.begin(); it != _intervals.end(); it++) 
+		keys.push_back(*rootKey + *it);
+	
+	return keys;
+}
+
+
 ostream& operator <<(ostream &stream, const ChordQuality &quality)
 {
 	stream << quality._name;
