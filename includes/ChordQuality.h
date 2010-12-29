@@ -26,13 +26,22 @@
 #include <map>
 
 #include "Interval.h"
+#include "Key.h"
 
 using namespace std;
 
 class ChordQuality 
 {
+	string name;
+	vector<KeyInterval> intervals;
+	
 public:
-	ChordQuality(string, vector<KeyInterval> &);
+	// constructors
+	ChordQuality(string name, vector<KeyInterval> &intervals);
+	
+	// operators
+	friend ostream& operator <<(ostream &stream, const ChordQuality &quality);
+	friend ostream& operator <<(ostream &stream, const ChordQuality *quality);
 };
 
 namespace Jazz { extern map<string, ChordQuality *> chordQuality; };

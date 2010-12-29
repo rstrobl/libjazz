@@ -22,7 +22,20 @@
 
 namespace Jazz { map<string, Key *> key; };
 
-ChordQuality::ChordQuality(std::string quality, vector<KeyInterval> &intervals)
+Key::Key(string name, int index)
 {
-	
+	this->name = name;
+	this->index = index;
+}
+
+ostream& operator <<(ostream &stream, const Key &key)
+{
+	stream << key.name;
+	return stream;
+}
+
+ostream& operator <<(ostream &stream, const Key *key)
+{
+	stream << key->name;
+	return stream;
 }

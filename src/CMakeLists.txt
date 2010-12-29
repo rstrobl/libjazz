@@ -1,4 +1,5 @@
 set(SOURCE
+		Key.cpp
     	Chord.cpp
         ChordQuality.cpp
         ChordContainer.cpp
@@ -6,5 +7,6 @@ set(SOURCE
         Main.cpp
 )
 
+link_libraries(libboost_regex.a)
 add_executable(libjazz ${SOURCE})
 

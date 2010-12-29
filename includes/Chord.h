@@ -23,6 +23,7 @@
 
 #include <string>
 #include <vector>
+#include <iostream>
 #include <fstream>
 
 #include "Key.h"
@@ -40,7 +41,8 @@ class Chord
 public:
 	// constructors
 	Chord(Key *key, ChordQuality *quality);
-	
+	Chord(string key, string quality);
+		
 	// operators
 	friend ostream& operator <<(ostream &stream, const Chord &chord);
 	friend ostream& operator <<(ostream &stream, const Chord *chord);

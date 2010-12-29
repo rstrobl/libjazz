@@ -33,6 +33,7 @@ using namespace std;
 class ChordContainer : public map<string, Chord *>
 {
 public:
+	// operators
 	Chord *operator[](string chordName);
 };
 

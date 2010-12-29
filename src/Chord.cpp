@@ -26,6 +26,12 @@ Chord::Chord(Key *key, ChordQuality *quality)
 	this->chordQuality = quality;
 }
 
+Chord::Chord(string key, string quality)
+{
+	this->rootKey = Jazz::key[key];
+	this->chordQuality = Jazz::chordQuality[quality];
+}
+
 ostream& operator <<(ostream &stream, const Chord &chord)
 {
 	stream << chord.rootKey << chord.chordQuality;

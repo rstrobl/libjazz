@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
 {
 	Jazz::initDefaults();
 	
-	cout << Jazz::chord["CMaj7"] << std::endl;
+	cout << Jazz::chord["Cm"] << endl;
 	
 	return 0;
 }

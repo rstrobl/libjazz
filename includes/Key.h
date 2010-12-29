@@ -24,20 +24,25 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <iostream>
 
 typedef char Letter;
-
-#define FLAT -1
-#define SHARP 1
 
 using namespace std;
 
 class Key 
 {
+	string name;
+	int index;
 //	const Letter[] = {'C', 'D', 'E', 'F', 'G', 'A', 'B'};
 	
 public:
-	Key(string, int);
+	// constructors
+	Key(string name, int index);
+
+	// operators
+	friend ostream& operator <<(ostream &stream, const Key &key);
+	friend ostream& operator <<(ostream &stream, const Key *key);
 };
 
 namespace Jazz { extern map<string, Key *> key; };

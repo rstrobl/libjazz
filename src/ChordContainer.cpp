@@ -28,26 +28,17 @@ Chord *ChordContainer::operator[](std::string chordName)
 	if(this->find(chordName) == this->end())
 	{
 		string key, quality;
-		string *current = &key;
-		string::iterator it = chordName.begin();
 		
-		assert(chordName.length() > 0);
-		
-		// first character is the alphabetic letter from C to B and belongs to the key
-		(*current)[0] = *(it++);
-		
-		for(; it != chordName.end(); it++)
-		{	
-			if(*it != '#' && *it != 'b')
-				current = &quality;
-			
-			// append character to current string
-			current->push_back(*it);
-		}
-		
-		// create chord from the given information
-//		((map<std::string, Chord *>)*this)[chordName] = new Chord(key, quality);
-	}
+		boost::regex expr("([A-G][#|b]?)(\\w*)");
+		boost::smatch matches;
 
-	return ((map<std::string, Chord *>)*this)[chordName];
+		if(!boost::regex_search(chordName, matches, expr))
+			return NULL;
+
+		key = matches[1];
+		quality = matches[2];
+
+		// insert key/value pair into map and return the value
+		return (*((this->insert(make_pair(chordName, new Chord(key, quality)))).first)).second;		
+	}
 }
