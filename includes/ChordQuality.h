@@ -32,8 +32,8 @@ using namespace std;
 
 class ChordQuality 
 {
-	string name;
-	vector<Interval *> intervals;
+	string _name;
+	vector<Interval *> _intervals;
 	
 public:
 	// constructors

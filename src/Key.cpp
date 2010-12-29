@@ -22,20 +22,20 @@
 
 namespace Jazz { map<string, Key *> key; };
 
-Key::Key(string name, int index)
+Key::Key(string name, int halfTonesOverC)
 {
-	this->name = name;
-	this->index = index;
+	this->_name = name;
+	this->_halfTonesOverC = halfTonesOverC;
 }
 
 ostream& operator <<(ostream &stream, const Key &key)
 {
-	stream << key.name;
+	stream << key._name;
 	return stream;
 }
 
 ostream& operator <<(ostream &stream, const Key *key)
 {
-	stream << key->name;
+	stream << key->_name;
 	return stream;
 }

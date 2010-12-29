@@ -33,10 +33,10 @@ using namespace std;
 
 class Chord 
 {
-	Key *rootKey;
-	ChordQuality *chordQuality;
+	Key *_rootKey;
+	ChordQuality *_chordQuality;
 
-	vector<Key *> keys;
+	vector<Key *> _keys;
 	
 public:
 	// constructors

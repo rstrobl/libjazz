@@ -24,18 +24,18 @@ namespace Jazz { map<string, ChordQuality *> chordQuality; };
 
 ChordQuality::ChordQuality(string name, vector<Interval *> &intervals)
 {
-	this->name = name;
-	this->intervals = intervals;
+	_name = name;
+	_intervals = intervals;
 }
 
 ostream& operator <<(ostream &stream, const ChordQuality &quality)
 {
-	stream << quality.name;
+	stream << quality._name;
 	return stream;
 }
 
 ostream& operator <<(ostream &stream, const ChordQuality *quality)
 {
-	stream << quality->name;
+	stream << quality->_name;
 	return stream;
 }

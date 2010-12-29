@@ -22,24 +22,24 @@
 
 Chord::Chord(Key *key, ChordQuality *quality)
 {
-	this->rootKey = key;
-	this->chordQuality = quality;
+	_rootKey = key;
+	_chordQuality = quality;
 }
 
 Chord::Chord(string key, string quality)
 {
-	this->rootKey = Jazz::key[key];
-	this->chordQuality = Jazz::chordQuality[quality];
+	_rootKey = Jazz::key[key];
+	_chordQuality = Jazz::chordQuality[quality];
 }
 
 ostream& operator <<(ostream &stream, const Chord &chord)
 {
-	stream << chord.rootKey << chord.chordQuality;
+	stream << chord._rootKey << chord._chordQuality;
 	return stream;
 }
 
 ostream& operator <<(ostream &stream, const Chord *chord)
 {
-	stream << chord->rootKey << chord->chordQuality;
+	stream << chord->_rootKey << chord->_chordQuality;
 	return stream;
 }

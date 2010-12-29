@@ -32,13 +32,12 @@ using namespace std;
 
 class Key 
 {
-	string name;
-	int index;
-//	const Letter[] = {'C', 'D', 'E', 'F', 'G', 'A', 'B'};
+	string _name;
+	int _halfTonesOverC;
 	
 public:
 	// constructors
-	Key(string name, int index);
+	Key(string name, int halfTonesOverC);
 
 	// operators
 	friend ostream& operator <<(ostream &stream, const Key &key);
