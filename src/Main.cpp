@@ -10,12 +10,7 @@ int main(int argc, char *argv[])
 	Jazz::initDefaults();
 	
 	cout << Jazz::chord["Cm"] << endl;
+	cout << Jazz::chord["GMaj7"] << endl;
 	
-	vector<Key *> keys = Jazz::chordQuality[""]->getKeysFor(Jazz::key["C##"]);
-	
-	for (vector<Key *>::iterator it = keys.begin(); it!=keys.end(); it++)
-	{
-		cout << *it << endl;
-	}
 	return 0;
 }

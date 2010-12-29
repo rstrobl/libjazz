@@ -25,6 +25,8 @@
 #include <vector>
 #include <map>
 #include <iostream>
+#include <fstream>
+#include <iterator>
 
 #include "interval.h"
 
@@ -50,5 +52,16 @@ public:
 };
 
 namespace Jazz {  extern map<string, Key *> key;  };
+
+namespace std
+{
+	// this is the implementation for having a spaceseperated output
+	// of vector elements such as a vector of Keys
+	template<class A1, class A2> ostream& operator<<(ostream& s, vector<A1, A2> const& vec)
+	{
+		copy(vec.begin(), vec.end(), ostream_iterator<A1>(s, " "));
+		return s;
+	}
+};
 
 #endif

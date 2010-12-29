@@ -39,6 +39,8 @@ public:
 	// constructors
 	ChordQuality(string name, vector<Interval *> &intervals);
 	
+	// accessors
+	vector<Interval *> getIntervals() const { return _intervals; }
 	vector<Key *> getKeysFor(const Key *rootKey);
 	
 	// operators

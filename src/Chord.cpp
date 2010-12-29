@@ -30,16 +30,12 @@ Chord::Chord(string key, string quality)
 {
 	_rootKey = Jazz::key[key];
 	_chordQuality = Jazz::chordQuality[quality];
-}
-
-ostream& operator <<(ostream &stream, const Chord &chord)
-{
-	stream << chord._rootKey << chord._chordQuality;
-	return stream;
+	
+	_keys = _chordQuality->getKeysFor(_rootKey);
 }
 
 ostream& operator <<(ostream &stream, const Chord *chord)
 {
-	stream << chord->_rootKey << chord->_chordQuality;
+	stream << chord->_rootKey << chord->_chordQuality << " / " << chord->_keys;
 	return stream;
 }

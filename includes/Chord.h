@@ -44,7 +44,6 @@ public:
 	Chord(string key, string quality);
 		
 	// operators
-	friend ostream& operator <<(ostream &stream, const Chord &chord);
 	friend ostream& operator <<(ostream &stream, const Chord *chord);
 };
 
