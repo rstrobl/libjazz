@@ -18,32 +18,12 @@
  * Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301 USA
  */
 
-#ifndef CHORDQUALITY_H__
-#define CHORDQUALITY_H__
+#include "interval.h"
 
-#include <string>
-#include <vector>
-#include <map>
+namespace Jazz { map<KeyInterval, Interval *> interval; };
 
-#include "Interval.h"
-#include "Key.h"
-
-using namespace std;
-
-class ChordQuality 
+Interval::Interval(int halfTones, int letterIndex)
 {
-	string name;
-	vector<Interval *> intervals;
-	
-public:
-	// constructors
-	ChordQuality(string name, vector<Interval *> &intervals);
-	
-	// operators
-	friend ostream& operator <<(ostream &stream, const ChordQuality &quality);
-	friend ostream& operator <<(ostream &stream, const ChordQuality *quality);
-};
-
-namespace Jazz { extern map<string, ChordQuality *> chordQuality; };
-
-#endif
+	_halfTones = halfTones;
+	_letterIndex = letterIndex;
+}

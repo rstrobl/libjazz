@@ -22,7 +22,7 @@
 
 namespace Jazz { map<string, ChordQuality *> chordQuality; };
 
-ChordQuality::ChordQuality(string name, vector<KeyInterval> &intervals)
+ChordQuality::ChordQuality(string name, vector<Interval *> &intervals)
 {
 	this->name = name;
 	this->intervals = intervals;

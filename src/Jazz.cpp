@@ -22,6 +22,26 @@
 
 void Jazz::initDefaults()
 {
+	//// intervals
+	interval[ROOT] 			 = new Interval(0, 0);
+	interval[MINOR_2ND] 	 = new Interval(1, 1);
+	interval[MAJOR_2ND]		 = new Interval(2, 1);
+	interval[AUGMENTED_2ND]  = new Interval(3, 1);
+	interval[MINOR_3RD] 	 = new Interval(3, 2);
+	interval[MAJOR_3RD] 	 = new Interval(4, 2);
+	interval[PERFECT_4TH] 	 = new Interval(5, 3);
+	interval[AUGMENTED_4TH]  = new Interval(6, 3);
+	interval[DIMINISHED_5TH] = new Interval(6, 4);
+	interval[PERFECT_5TH] 	 = new Interval(7, 4);
+	interval[AUGMENTED_5TH]  = new Interval(8, 4);
+	interval[MINOR_6TH] 	 = new Interval(8, 5);
+	interval[MAJOR_6TH] 	 = new Interval(9, 5);
+	interval[DIMINISHED_7TH] = new Interval(9, 6);
+	interval[MINOR_7TH] 	 = new Interval(10, 6);
+	interval[DOMINANT_7TH] 	 = new Interval(10, 6);
+	interval[MAJOR_7TH] 	 = new Interval(11, 6);
+	interval[OCTAVE] 		 = new Interval(12, 7);
+	
 	//// keys
 	key["C"]   = new Key("C", 0);
 	key["B#"]  = new Key("B#", 0);
@@ -73,22 +93,22 @@ void Jazz::initDefaults()
 	//// chords
 	// Major
 	{
-		vector<KeyInterval> intervals;
+		vector<Interval *> intervals;
 		
-		intervals.push_back(Interval::ROOT);
-		intervals.push_back(Interval::MAJOR_3RD);
-		intervals.push_back(Interval::PERFECT_5TH);
+		intervals.push_back(interval[ROOT]);
+		intervals.push_back(interval[MAJOR_3RD]);
+		intervals.push_back(interval[PERFECT_5TH]);
 
 		chordQuality[""] = new ChordQuality("Major", intervals);
 	}
 
 	// Minor
 	{
-		vector<KeyInterval> intervals;
+		vector<Interval *> intervals;
 		
-		intervals.push_back(Interval::ROOT);
-		intervals.push_back(Interval::MINOR_3RD);
-		intervals.push_back(Interval::PERFECT_5TH);
+		intervals.push_back(interval[ROOT]);
+		intervals.push_back(interval[MINOR_3RD]);
+		intervals.push_back(interval[PERFECT_5TH]);
 
 		chordQuality["m"] = new ChordQuality("Minor", intervals);
 	}

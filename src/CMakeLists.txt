@@ -1,4 +1,5 @@
 set(SOURCE
+		Interval.cpp
 		Key.cpp
     	Chord.cpp
         ChordQuality.cpp
