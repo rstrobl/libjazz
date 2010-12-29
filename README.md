@@ -1,20 +1,20 @@
 # jazzlib
 
-## INTRODUCTION
+### INTRODUCTION
 
 This library provides the basics of music theory and the
 application of it.
 
-## REQUIREMENTS
+### REQUIREMENTS
 
 You may need "cmake" and the "boost" library
 
-## INSTALLATION
+### INSTALLATION
 
-	$ cmake .
-	$ make
+	> cmake .
+	> make
+	> sudo make install
 
-## GETTING STARTED
+### GETTING STARTED
 
-As this is not yet a working release it might be
-better not to get started using it for the moment ;)
+Please try out the examples.

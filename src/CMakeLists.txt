@@ -5,9 +5,9 @@ set(SOURCE
         ChordQuality.cpp
         ChordContainer.cpp
         Jazz.cpp
-        Main.cpp
 )
 
 link_libraries(libboost_regex.a)
-add_executable(libjazz ${SOURCE})
+add_library(jazz ${SOURCE})
 
+install_targets(/lib jazz)
