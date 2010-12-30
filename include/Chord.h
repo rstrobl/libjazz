@@ -42,6 +42,9 @@ public:
 	// constructors
 	Chord(Key *key, ChordQuality *quality);
 	Chord(string key, string quality);
+	
+	// accessors
+	vector<Key *> getKeys() { return _keys; };
 		
 	// operators
 	friend ostream& operator <<(ostream &stream, const Chord *chord);
