@@ -26,6 +26,7 @@
 #include <iostream>
 #include <fstream>
 
+#include "Interval.h"
 #include "Key.h"
 #include "ChordQuality.h"
 
@@ -51,6 +52,7 @@ public:
 	friend ostream& operator <<(ostream &stream, const Chord *chord);
 	
 	Chord *operator+(Key *key) const;
+	Chord *operator+(Interval *interval) const;
 };
 
 #endif

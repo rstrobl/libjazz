@@ -56,9 +56,18 @@ ostream& operator <<(ostream &stream, const Chord *chord)
 
 Chord *Chord::operator+(Key *key) const
 {
-	vector<Key *> newKeys = _keys;
+	vector<Key *> keys = _keys;
 	
-	newKeys.push_back(key);
+	keys.push_back(key);
 	
-	return new Chord(newKeys);
+	return new Chord(keys);
+}
+
+Chord *Chord::operator+(Interval *interval) const
+{
+	vector<Key *> keys = _keys;
+	
+	keys.push_back(*_rootKey + interval);
+	
+	return new Chord(keys);
 }
