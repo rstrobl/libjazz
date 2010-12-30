@@ -20,6 +20,15 @@
 
 #include "Chord.h"
 
+Chord::Chord(vector<Key *> &keys)
+{
+	_rootKey = NULL;
+	_chordQuality = NULL;
+	
+	_keys = keys;
+}
+
+
 Chord::Chord(Key *key, ChordQuality *quality)
 {
 	_rootKey = key;
@@ -36,6 +45,20 @@ Chord::Chord(string key, string quality)
 
 ostream& operator <<(ostream &stream, const Chord *chord)
 {
-	stream << chord->_rootKey << chord->_chordQuality << " / " << chord->_keys;
+	if(chord->_chordQuality == NULL)
+		stream << "Custom chord / " << chord->_keys;
+	
+	else
+		stream << chord->_rootKey << chord->_chordQuality << " / " << chord->_keys;
+
 	return stream;
+}
+
+Chord *Chord::operator+(Key *key) const
+{
+	vector<Key *> newKeys = _keys;
+	
+	newKeys.push_back(key);
+	
+	return new Chord(newKeys);
 }

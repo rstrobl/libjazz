@@ -40,6 +40,7 @@ class Chord
 	
 public:
 	// constructors
+	Chord(vector<Key *> &keys);
 	Chord(Key *key, ChordQuality *quality);
 	Chord(string key, string quality);
 	
@@ -48,6 +49,8 @@ public:
 		
 	// operators
 	friend ostream& operator <<(ostream &stream, const Chord *chord);
+	
+	Chord *operator+(Key *key) const;
 };
 
 #endif

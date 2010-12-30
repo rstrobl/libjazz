@@ -19,6 +19,7 @@ int main(int argc, char *argv[])
 	cout << c << endl;
 	cout << c->getKeys()[0]->getMIDIKeys() << endl;
 	cout << Jazz::chord["G#Maj7"] << endl;
+	cout << (*Jazz::chord["C"] + Jazz::key["A"])  << endl;
 	
 	return 0;
 }
