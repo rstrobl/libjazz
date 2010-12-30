@@ -9,12 +9,16 @@ int main(int argc, char *argv[])
 {
 	Jazz::initDefaults();
 	
-	cout << Jazz::chord["Cm"] << endl;
+	cout << Jazz::chord["CMaj7"] << endl;
 	cout << Jazz::chord["GMaj7"] << endl;
 	
 	cout << Jazz::chord["Bbm7"] << endl;
 
-	cout << Jazz::key["Bb"]->getMIDIKeys() << endl;
+	Chord *c = Jazz::chord["G#Maj7"];
 
+	cout << c << endl;
+	cout << c->getKeys()[0]->getMIDIKeys() << endl;
+	cout << Jazz::chord["G#Maj7"] << endl;
+	
 	return 0;
 }

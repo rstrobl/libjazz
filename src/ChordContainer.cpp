@@ -25,20 +25,23 @@ namespace Jazz { ChordContainer chord; }
 Chord *ChordContainer::operator[](std::string chordName)
 {
 	// check wether chord is already listed
-	if(this->find(chordName) == this->end())
-	{
-		string key, quality;
+	map<string, Chord *>::iterator it = this->find(chordName);
+
+	if(it != this->end())
+		return it->second;
+	
+	// nothing found, so we have to create a new record
+	string key, quality;
 		
-		boost::regex expr("([A-G][#|b]?)(\\w*)");
-		boost::smatch matches;
+	boost::regex expr("([A-G][#|b]?)(\\w*)");
+	boost::smatch matches;
 
-		if(!boost::regex_search(chordName, matches, expr))
-			return NULL;
+	if(!boost::regex_search(chordName, matches, expr))
+		return NULL;
 
-		key = matches[1];
-		quality = matches[2];
+	key = matches[1];
+	quality = matches[2];
 
-		// insert key/value pair into map and return the value
-		return (*((this->insert(make_pair(chordName, new Chord(key, quality)))).first)).second;		
-	}
+	// insert key/value pair into map and return the value
+	return (*((this->insert(make_pair(chordName, new Chord(key, quality)))).first)).second;		
 }
